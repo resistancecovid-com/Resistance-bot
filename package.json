@@ -1,10 +1,14 @@
 {
   "name": "jawarrr",
   "version": "1.0.0",
-  "description": "Bot twitter & discord developper pour l'interface de Barterlly",
-  "main": "bot1.js",
+  "description": "Bot twitter & discord developer pour l'interface de Barterlly",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
+    "dev": "ts-node ./src/Server.ts",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,10 +20,36 @@
   "author": "Anis Haboubi",
   "license": "Apache-2.0",
   "dependencies": {
+    "typescript": "3.7.4",
+    "express": "4.17.1",
+    "body-parser": "1.19.0",
+    "@types/node": "12.12.21",
+    "@types/express": "4.17.2",
+    "@types/body-parser": "1.17.1",
+    "reflect-metadata": "0.1.13",
+    "class-validator": "0.11.0",
+    "json-typescript-mapper": "1.1.3",
+    "ts-node": "8.5.4",
     "discord.js": "^11.5.1",
+    "@discordjs/uws": "^10.149.0",
     "fs": "0.0.1-security",
     "request": "^2.88.0",
-    "thingiverse-js": "file:thingiverse-js",
     "twit": "^2.2.11"
+  },
+  "devDependencies": {
+    "jest": "24.9.0",
+    "ts-jest": "24.2.0",
+    "@types/jest": "22.2.3"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/tests/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
   }
 }
