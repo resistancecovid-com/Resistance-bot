@@ -1,30 +1,31 @@
+import DiscordCommand from "./DiscordCommand";
 
 export default class CommandHandler {
-    readonly commandMap: Map<string, any>;
-    //Property todo: should be moved in a json file
+    private static INSTANCE: CommandHandler;
+
+    readonly commandList: Array<DiscordCommand>;
+    //Property todo: should be move in a json file
     readonly prefix:string = '!';
 
-    constructor() {
-        this.commandMap = new Map();
+    private constructor() {
+        this.commandList = new Array();
     }
 
-
-    addCommand(command: string, handler: Function) {
-        if (command == undefined || command === '') return;
-        console.log("command added: ", command);
-        this.commandMap[this.prefix + command] = handler;
+    public static get instance() {
+        return this.INSTANCE || (this.INSTANCE = new this())
     }
 
-    removeCommand(command = '') {
-        if (command == undefined || command === '') return;
-        delete this.commandMap[command];
+    addCommand(command:DiscordCommand) {
+        if (command == undefined) return;
+        console.log("command added: ", command.name);
+        this.commandList.push(command);
     }
 
     handle(message) {
-        this.commandMap.forEach((value, key) => {
-            message.content.startsWith(key) ? this.commandMap[key](message): console.log(`Unknown command: ${message.content}`)
-        })
+        const command = this.commandList.find(value => message.content.startsWith(this.prefix + value.name));
+        command != undefined ? command.callback(message, this) : console.error("Unknown command");
     }
+
 
 
 

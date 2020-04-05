@@ -359,55 +359,10 @@ client.on('message', message => {
     var channel1 = client.channels.find(channel => channel.name === "feed-data");
     var channeltwit = client.channels.find(channel => channel.name === "feed-twitter");
     stream.on('tweet', function (data) {
-        //     fs.appendFile('twitter_log.txt', '\n Twitter :: \n', function (err) {
-        //           if (err) throw err;
-
-        //           });
         if (data.in_reply_to_status_id == null && data.in_reply_to_status_id_str == null && data.in_reply_to_user_id == null && data.in_reply_to_user_id_str == null && data.in_reply_to_screen_name == null) {
             // channeltwit.send('Sur Twitter ! ' + ' par : ' + data.user.name + ' @ ' + 'https://twitter.com/' + data.user.screen_name + '/status/' + data.id_str);
 
         }
-        // console.log(tweet.user.name);
-        // channeltwit.send('Sur Twitter ! ' + ' par : ' + tweet.user.name + ' @ ' + 'https://twitter.com/' + tweet.screen_name + '/status/' + tweet.id_str);
-        // console.log('Twitter :: ', data);
-        // if(data.in_reply_to_user_id_str!==null) {
-
-        // }else {
-        // fs.appendFile('twitter_log.txt', data,function (err) {
-        // if (err) throw err;
-
-        // });
-        // fs.readFile('twitter_log.txt',"UTF8", function (err,datatest) {
-        //   if(datatest){
-        //   console.log(datatest);
-        //  var result = datatest.filter(function(e) {
-        //    return e.id != data.id;
-        //  });
-
-        //  console.log(result);
-
-        //     var content = JSON.stringify(data);
-        //     fs.writeFile('twitter_log.txt', content, function (err) {
-        //       if (err) throw err;
-        //           console.log('Saved!',difftab.length);
-        //     });
-        //     channeltwit.send('Sur Twitter ! ' + ' par : ' + data.user.name + ' @ ' + 'https://twitter.com/' + data.user.screen_name + '/status/' + data.id_str);
-
-
-        //   // }else{
-        //   //   // console.log("Pas de nouvelles offres!");
-        //   // }
-        // }else{
-        //   var content = JSON.stringify(data);
-        //   fs.appendFile('twitter_log.txt', content, function (err) {
-        //     if (err) throw err;
-        //         console.log('Saved!');
-        //   });
-        // }
-        // }
-        //   });
-
-
     })
 
     if (message.content.indexOf('!help') === 0) {
