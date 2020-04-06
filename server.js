@@ -312,17 +312,63 @@ client.on('message', message => {
   var bw= client.channels.find(channel => channel.name==="brabant-wallon");
   var paris= client.channels.find(channel => channel.name==="paris");
   var marseille= client.channels.find(channel => channel.name==="marseille");
-
-
-
+  var channeladmin=client.channels.find(channel => channel.name==="test");
+  var info=client.channels.find(channel => channel.id==="695551332869865555");
+  // hainaut info:695551332869865555
+  // Bruxelles info: 695526942488657960
   
-
   // If the message is "ping"
   if (message.content === 'ping') {
     // Send "pong" to the same channel
     message.channel.send('pong');
+    console.log("idchannel",message.channel.id)
 
   }
+
+    if(message.content.indexOf('macron')!=-1){
+    // Send "pong" to the same channel
+    message.channel.send('https://i.imgur.com/ZAb1c7y.png');
+
+  }
+    if(message.content.indexOf('maggie')!=-1){
+
+    // Send "pong" to the same channel
+    message.channel.send('https://i.imgur.com/7r6h45g.png');
+
+  }
+
+    if(message.content.indexOf('china')!=-1){
+
+    // Send "pong" to the same channel
+    message.channel.send('https://pbs.twimg.com/media/ETu8X4BXsAAthgD.jpg');
+
+  }
+
+      if(message.content.indexOf('nazi')!=-1){
+
+    // Send "pong" to the same channel
+    message.channel.send('http://2.bp.blogspot.com/-XgLx2kTH0Gs/TqeeKQGqzYI/AAAAAAAAEE0/b-gUTKID3wk/s1600/godwinpoint_paranomagazine.png');
+
+  }
+
+      if(message.content.indexOf('hitler')!=-1){
+
+    // Send "pong" to the same channel
+    message.channel.send('https://blog.slate.fr/wp-includes/ms-files.php?blog=sagalovitsch&file=2016/06/godwinlaw.jpg');
+
+  }
+        if(message.content.indexOf('SAV')!=-1){
+
+    // Send "pong" to the same channel
+    message.channel.send('https://s1.dmcdn.net/v/1b6r01Mdc7LbuvvXP/x1080');
+
+  }
+  if(message.content.indexOf('heliox')!=-1){
+    // Send "pong" to the same channel
+      channeladmin.send("**Money Money Money** \n https://i.imgur.com/XXKjt8z.jpg ");
+  }
+  
+ 
   
   
 // if (message.content === '!sources' || message.content === '!stl') {
@@ -361,6 +407,13 @@ client.on('message', message => {
       // Send "pong" to the same channel
       message.channel.send('https://wiki.resistancecovid.com/doku.php?id=coordination-demandes-et-besoins');
     }
+    if (message.content === '!format') {
+      // Send "pong" to the same channel
+
+      paris.send('**Exemple de format pour le suivi des commandes dans le channel #commandes**\ndate de commande XX/XX/20\nqui:HPAD XXX\nquoi: faceshield\ncmb: 10\nobj: protection personnel soignant +\ndélai: X jours\nEtat: \nOrga livraison: @[FR-92]rico @[FR-93]Mister3D \ncontact: @[FR-92]rico \nmaker: @[FR-92]rico @[FR-75]Malo');
+    }
+
+
 
 
 
@@ -399,6 +452,8 @@ client.on('message', message => {
      message.channel.send(`Merci de passer par le Channel <#${presentation.id}>, pour toutes les questions <#${faq.id}> et hesitez pas à venir papoter dans <#${generalfr.id}>  ou <#${generalen.id}>`);
        message.channel.send(`Pour garantir une bonne communication, merci de suivre les étapes suivantes: \nEtape 1: préfixer ton pseudo par la mention pays, ville ou région - ex: [BXL] [FR-90];  \nEtape 2: Demandez un accès à ta cellule sur <#${demande.id}> \nEtape 3: Fais un tour sur ton canal de cellule régional - ex: #bruxelles, #france (ou demander un channel dédié)`);
   }
+
+ 
 
  
 
