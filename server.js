@@ -3,7 +3,7 @@
 */
 const request = require("request");
 const fs= require('fs');
-const thingiverse = require('thingiverse-js');
+// const thingiverse = require('thingiverse-js');
 var Twit = require('twit')
 
 var T = new Twit({
@@ -131,12 +131,12 @@ function gethingerverse(ticker) {
   const token = 'c29def8a6f2e80742780035a8bc2c42e';
     return new Promise(function(resolve, reject) {
       var tag="search?name="+ticker+"&q="+ticker+"&type=things&sort=newest"
-     thingiverse(tag, { token }).then(res => {
-          resolve(res.body);
-        }).catch(err => {
-          reject(err);
-          console.log(thingiverse.getError(err.response));
-        });
+     // thingiverse(tag, { token }).then(res => {
+     //      resolve(res.body);
+     //    }).catch(err => {
+     //      reject(err);
+     //      console.log(thingiverse.getError(err.response));
+     //    });
     })
 
 }
@@ -324,35 +324,46 @@ client.on('message', message => {
 
   }
   
-if (message.content === '!sources' || message.content === '!stl') {
-    // Send "pong" to the same channel
+  
+// if (message.content === '!sources' || message.content === '!stl') {
+//     // Send "pong" to the same channel
 
-    message.channel.send('**Last Version**');   
-    message.channel.send('Faceshield3D [#resistancecovid] https://github.com/resistancecovid-com/faceshield/tree/master/faceshield_3DPrinting/faceshield_1.0.8');
-    message.channel.send('Faceshield3D [Newshield]: https://www.myminifactory.com/fr/object/3d-print-115247');
-    message.channel.send('https://www.prusaprinters.org/prints/27026-prusa-rc31-a4-sheet-face-shield-remix-quad-stack/files');
-    message.channel.send('**Other Sources**');   
-    message.channel.send('https://resistancecovid.com/catalogue.php');
-    message.channel.send('https://www.prusaprinters.org/prints/26427-prusa-protective-face-shield-rc1-rc2-remix-rc3-eas/files');
-    message.channel.send('https://www.prusaprinters.org/prints/27026-prusa-rc31-a4-sheet-face-shield-remix-quad-stack/files');
+//     message.channel.send('**Last Version**');   
+//     message.channel.send('Faceshield3D [#resistancecovid] https://github.com/resistancecovid-com/faceshield/tree/master/faceshield_3DPrinting/faceshield_1.0.8');
+//     message.channel.send('Faceshield3D [Newshield]: https://www.myminifactory.com/fr/object/3d-print-115247');
+//     message.channel.send('https://www.prusaprinters.org/prints/27026-prusa-rc31-a4-sheet-face-shield-remix-quad-stack/files');
+//     message.channel.send('**Other Sources**');   
+//     message.channel.send('https://resistancecovid.com/catalogue.php');
+//     message.channel.send('https://www.prusaprinters.org/prints/26427-prusa-protective-face-shield-rc1-rc2-remix-rc3-eas/files');
+//     message.channel.send('https://www.prusaprinters.org/prints/27026-prusa-rc31-a4-sheet-face-shield-remix-quad-stack/files');
 
-  }
+//   }
 
-    if (message.content === '!tutos') {
+    if (message.content === '!tutos' || message.content === '!sources' || message.content === '!stl') {
         // Send "pong" to the same channel
         message.channel.send('**Tutos**');    
-        message.channel.send('Faceshield3D: https://wiki.resistancecovid.com/doku.php?id=tuto-prusa-shield-rc1-rc2-fr');
-        message.channel.send('Faceshield3CNC: https://gitlab.com/fablab-ulb/projects/coronavirus/protective-face-shields/-/tree/master/PFC-Headband-Flexible-LaserCut');
-        message.channel.send('Valvula Venturi: https://wiki.resistancecovid.com/doku.php?id=valve_respiratoire_rc1');
-
-
-
+        message.channel.send('Tutorial en Francais: https://wiki.resistancecovid.com/doku.php?id=tutos');
+        // message.channel.send('Faceshield3CNC: https://gitlab.com/fablab-ulb/projects/coronavirus/protective-face-shields/-/tree/master/PFC-Headband-Flexible-LaserCut');
       }
   if (message.content === '!recap') {
       // Send "pong" to the same channel
       message.channel.send('https://wiki.resistancecovid.com/doku.php?id=synthese-discutions');
     }
-  
+    if (message.content === '!archives') {
+      // Send "pong" to the same channel
+      message.channel.send('https://wiki.resistancecovid.com/doku.php?id=archive_commandes');
+    }
+    if (message.content === '!roles') {
+      // Send "pong" to the same channel
+      message.channel.send('https://wiki.resistancecovid.com/doku.php?id=roles-contacts');
+    }
+    if (message.content === '!coordination') {
+      // Send "pong" to the same channel
+      message.channel.send('https://wiki.resistancecovid.com/doku.php?id=coordination-demandes-et-besoins');
+    }
+
+
+
     if (message.content === '!stock') {
       // Send "pong" to the same channel
       message.channel.send('**Stock**');    
@@ -361,7 +372,8 @@ if (message.content === '!sources' || message.content === '!stl') {
       message.channel.send('https://www.mantec.be/fr/');
       message.channel.send('https://r3dsrl.odoo.com/shop ');
       message.channel.send('https://www.gotronic.fr/ email:contact@gotronic.fr')
-      message.channel.send('https://www.farnell.com/ --> x4n4');
+      message.channel.send('https://www.farnell.com');
+      message.channel.send('https://www.slice3d.be/');
     }
   
 
@@ -445,36 +457,14 @@ if(data.in_reply_to_status_id== null && data.in_reply_to_status_id_str== null &&
   })
 
   if (message.content.indexOf('!help') === 0) {
-	var regles='Welcome voici le bot de monitoring de Resistancecovid \n Fonctions : **! fonctions** ';
+  var regles='Welcome voici le bot de Resistancecovid  \n Rappel des regles : **!welcome** \n Liste des Roles & Contacts : **!roles**  \n Coordination demandes et besoins : **!coordination**  \n Liste des liens vers les tutorials : **!tutos**  \n Liste des liens pour les fournisseurs : **!stock**  \n Liste des cellules : **!cellules**  \n Recap des réunions : **!recap**  \n Liste des archives : **!archives**';
+
     message.channel.send(regles);
-	
-	}
-  if(message.content.indexOf('!things')===0){
-        var context = message.content;
-        var ticker=context.substring(7);
-        var initializePromise = gethingerverse(ticker);
-        initializePromise.then(function(result) {
-            if(result[0] || result.error!="not_authorized" ){
-              var things=result;
-              channel1.send("Il y a ** "+things.length+ " paterns ** sur thingerverse pour ta recherche sur "+ticker);
-
-              }if(context.length>7){
-                things.forEach((value, key, thisMap) => {
-                  message.author.send("Derniers pattern sorti sur thinngerverse ** "+value.name+ "  **  source : "+value.public_url);
-                  })
-              }else{
-              channel1.send("[API]Il y a pas de result");
-
-            }
-
-          }, function(err) {
-              console.log(err);
-          })
-
-    }
+  
+  }
+  
 
 });
-
 
 
 
