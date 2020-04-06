@@ -32,13 +32,11 @@
     "request": "^2.88.0",
     "twit": "^2.2.11"
   },
-
   "devDependencies": {
     "jest": "24.9.0",
     "ts-jest": "24.2.0",
     "@types/jest": "22.2.3"
   },
-
   "jest": {
     "transform": {
       ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
