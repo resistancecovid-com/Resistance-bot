@@ -1,7 +1,7 @@
 import CommandHandler from "./CommandHandler";
 import {Message} from "discord.js";
 
-export default class DiscordCommand {
+export default class DiscordCommand implements Command{
     readonly name:string;
     readonly description:string;
     readonly callback:Function;

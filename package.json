@@ -10,10 +10,6 @@
     "dev": "ts-node ./src/Server.ts",
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "ssh://gituser@git.jawarrr.ch:1337/volume1/Sources/JawARRR.git"
-  },
   "keywords": [
     "bot"
   ],
@@ -48,6 +44,9 @@
       ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/tests/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "modulePaths": [
+      "..//Resistance-bot"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",

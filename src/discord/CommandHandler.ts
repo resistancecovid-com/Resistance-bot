@@ -1,4 +1,5 @@
 import DiscordCommand from "./DiscordCommand";
+import {Embed, toEmbed} from "./embed/Embed";
 
 export default class CommandHandler {
     private static INSTANCE: CommandHandler;
@@ -23,7 +24,7 @@ export default class CommandHandler {
 
     handle(message) {
         const command = this.commandList.find(value => message.content.startsWith(this.prefix + value.name));
-        command != undefined ? command.callback(message, this) : console.error("Unknown command");
+        command != undefined ? command.callback(message, this) : toEmbed(Embed.ERROR, "Error-404", "Command not found");
     }
 
 

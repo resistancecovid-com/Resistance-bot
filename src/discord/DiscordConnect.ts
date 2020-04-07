@@ -13,16 +13,20 @@ export default class DiscordConnect {
 
     connect() {
         this.client.on('ready', () => console.log('Resistance-bot connected to discord Server'));
-        this.client.on('message', message => {
-            if( !message.content.startsWith(this.commands.prefix)) return;
-            this.commands.handle(message);
-        });
+        this.client.on('message', this.messageHandler);
 
         this.client.login(this.token);
+        console.log("Ready to serve !")
     }
 
     attachHandler(handler: CommandHandler) {
         if( this.commands != undefined) return;
         this.commands = handler;
+    }
+
+
+    messageHandler = (message) => {
+        if( !message.content.startsWith(this.commands.prefix)) return;
+        this.commands.handle(message);
     }
 }
