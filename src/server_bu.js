@@ -216,7 +216,7 @@ client.on("guildMemberAdd", (member) => {
     var manifeste = client.channels.find(channel => channel.name === "manifeste");
     var devtools = client.channels.find(channel => channel.name === "dev-tools");
     var demande = client.channels.find(channel => channel.name === "demande-d-acces");
-
+Ë
 
     member.send(`Merci de passer par le Channel <#${presentation.id}>, pour toutes les questions <#${faq.id}> et hesitez pas à venir papoter dans <#${generalfr.id}>  ou <#${generalen.id}>`);
     member.send(`Pour garantir une bonne communication, merci de suivre les étapes suivantes: \nEtape 1: préfixer ton pseudo par la mention pays, ville ou région - ex: [BXL] [FR-90];  \nEtape 2: Demandez un accès à ta cellule sur <#${demande.id}> \nEtape 3: Fais un tour sur ton canal de cellule régional - ex: #bruxelles, #france (ou demander un channel dédié)`);
